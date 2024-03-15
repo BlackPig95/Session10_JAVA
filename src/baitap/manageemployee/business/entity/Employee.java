@@ -7,7 +7,8 @@ import java.util.Date;
 
 public class Employee
 {
-    private int employeeId = 1;
+    private int employeeId;
+    private static int countId = 1;
     private String employeeName, address;
     private Date employeeDob;
     private int phone;
@@ -15,19 +16,18 @@ public class Employee
 
     public Employee()
     {
-        this.employeeId++;
+        this.employeeId = countId++;
     }
 
-    public Employee(int employeeId, String employeeName, Date employeeDob, String address, int phone, double basicSalary, double KPI)
+    public Employee(String employeeName, Date employeeDob, String address, int phone, double basicSalary, double KPI)
     {
-        this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeDob = employeeDob;
         this.address = address;
         this.phone = phone;
         this.basicSalary = basicSalary;
         this.KPI = KPI;
-        this.employeeId++;
+        this.employeeId = countId++;
     }
 
     public int getEmployeeId()
@@ -35,10 +35,6 @@ public class Employee
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId)
-    {
-        this.employeeId = employeeId;
-    }
 
     public String getEmployeeName()
     {
